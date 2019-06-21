@@ -1,0 +1,7 @@
+{
+  "name": "myBlank",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
