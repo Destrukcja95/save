@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Category</ion-title>
+
+    <ion-buttons slot="secondary" (click)="close()" >
+      <ion-button>close</ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="primary">
+      <ion-button (click)="save()" *ngIf="editingCategory">save</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item id="input">
+    <ion-label position="stacked">Name</ion-label>
+    <ion-input #myInput [(ngModel)]="inputValue"></ion-input>
+  </ion-item>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+
+    <ion-button color="primary" expand="block" [disabled]="!inputValue.length" (click)="save()"
+                *ngIf="!editingCategory">create
+    </ion-button>
+
+    <ion-button color="danger" expand="block" (click)="delete()" *ngIf="editingCategory">delete</ion-button>
+
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>entry-detail</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button [disabled]="form.invalid" (click)="save()">{{ editing ? 'save' : 'create' }}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label position="stacked">Name<ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Amount<ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="number" inputmode="number" formControlName="amount"></ion-input>
+    </ion-item>
+
+    <ion-item (click)="openPicker()">
+      <ion-label position="stacked">Category<ion-text color="danger">*</ion-text></ion-label>
+      <ion-input type="text" formControlName="category" readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Date</ion-label>
+      <ion-datetime formControlName="date" display-format="MMMM DD, YYYY" picker-format="DD MMMM YYYY"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Time</ion-label>
+      <ion-datetime formControlName="date" display-format="HH:mm" picker-format="HH mm"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Notes</ion-label>
+      <ion-textarea rows="4" formControlName="notes"></ion-textarea>
+    </ion-item>
+
+  </form>
+
+  <ion-button color="danger" expand="block" id="delete-button" *ngIf="editing" (click)="delete()">delete</ion-button>
+
+</ion-content>
+

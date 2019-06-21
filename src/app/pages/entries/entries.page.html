@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>expenses</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-list *ngIf="entriesDays$ | async as days; else loading">
+    <ion-item-group *ngFor="let day of days">
+
+      <ion-item-divider sticky color="light">
+        <ion-label>{{day.hash | date: 'fullDate'}}</ion-label>
+        <ion-note slot="end" color="primary" id="sum-note">{{day.sum}} zł</ion-note>
+      </ion-item-divider>
+
+      <ion-item-sliding *ngFor="let entry of day.entries">
+        <ion-item  (click)="goToDetails(entry)" class="myItem">
+          <ion-label>
+            <h3>{{entry.name}}</h3>
+            <p>{{entry.date | date: 'shortTime'}}</p>
+          </ion-label>
+          <ion-note slot="end">
+            <p>{{entry.amount}} zł</p>
+          </ion-note>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="entriesService.delete(entry.uid)">delete</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-item-group>
+  </ion-list>
+
+
+  <ng-template #loading>
+    <ion-list>
+      <ion-item-sliding>
+        <ion-item *ngFor="let skeletonItem of [].constructor(20)">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+  </ng-template>
+
+  <div *ngIf="entriesDays$ | async as day">
+    <ion-list-header *ngIf="day.length === 0">
+      No entries found. Add one.
+    </ion-list-header>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/entry-detail/add">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

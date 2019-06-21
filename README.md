@@ -1,9 +1,4 @@
-# Projekt aplikacji internetowej  SaveBetter
-## Krótki opis projektu
-
-W związku z koniecznością stworzenia aplikacji na zaliczenie przedmiotu "Bogate Aplikacje Internetowe" po długiej burzy mózgów zdecydowaliśmy się w naszym projekcie poruszyć temat wydatków i oszczędności. W wielkim skrócie postanowiliśmy, że będzie ona miała ułatwić zarządzanie budżetem osobistym - jest to bardzo ważna kwestia szczególnie podczas studiów.
-
-Aplikacja napisana została w języku Typescript za pomocą platformy Ionic - dzięki użyciu tego środowiska jest ona dostępna zarówno na telefonach z systemem Android, jak i IOS. 
+# Projekt aplikacji internetowej  Save
 
 ## Skład zespołu projektowego
 Adrian Scehura 194614 - kierownik zespołu
@@ -22,10 +17,6 @@ Do wyboru posiadamy dwie opcje:
 - druga to wykorzystanie konta google
 Ekran logowania wygląda analogicznie do powyższego.
 
-### Menu
-![Menu](https://i.imgur.com/JXzR0WV.png)
-<br><br>
-Po lewej stronie aplikacji znajduje się wysuwane Menu. Pozwala ono na przejście pomiędzy wyszczególnionymi oknami aplikacji.
 
 ### Konto
 ![Account](https://i.imgur.com/E5PMxxg.png)
@@ -66,7 +57,3 @@ Aplikacja przechowuje w swojej bazie zdefiniowane przez użytkownika kategorie s
 <br>
 Dla każdego wydatku mamy możliwość dodania jego lokalizacji. Domyślnie na mapie pojawia się nasza aktualna pozycja, jednak użytkownik ma możliwość jego zmiany.
 
-## Linki do składowych projektu
-[Prototyp](https://marvelapp.com/8hgej4g/screen/57064473) 
-<br>[Zarządzanie projektem](https://github.com/Siilveer/SaveBetter/projects/2)
-<br>[Repozytorium](https://github.com/Siilveer/SaveBetter)

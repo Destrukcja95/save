@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Categories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list *ngIf="categories$ | async as categories; else loading">
+    <ion-item-sliding *ngFor="let category of categories">
+      <ion-item (click)="presentModal(category)" button>
+        <ion-label>
+          {{category.name}}
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="categoriesService.delete(category.uid)">delete</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ng-template #loading>
+    <ion-list>
+      <ion-item-sliding>
+        <ion-item *ngFor="let skeletonItem of [].constructor(20)">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+  </ng-template>
+
+
+  <div *ngIf="categories$ | async as categories">
+    <ion-list-header *ngIf="categories.length === 0">
+      No categories found. Add one.
+    </ion-list-header>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="presentModal()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

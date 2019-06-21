@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding-top ion-text-center">
+    <h2>{{userData.name}}</h2>
+  </div>
+
+  <ion-list inset>
+    <ion-item (click)="changeUsername()">Change Username</ion-item>
+    <ion-item (click)="userService.logout()">Logout</ion-item>
+  </ion-list>
+</ion-content>
